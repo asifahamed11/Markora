@@ -1,6 +1,6 @@
 {
   "name": "markora",
-  "version": "0.14.3",
+  "version": "0.14.4",
   "description": "A desktop companion for voice-driven builds and precise visual code edits",
   "private": true,
   "type": "module",
@@ -43,7 +43,7 @@
     "appId": "com.easywebai.desktop",
     "productName": "Markora",
     "directories": {
-      "output": "release/v0.14.3"
+      "output": "release/v0.14.4"
     },
     "files": [
       "electron/**",
