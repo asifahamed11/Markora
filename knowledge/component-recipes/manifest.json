@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "shadcn:button",
+      "file": "shadcn-button.json",
+      "source": "https://github.com/shadcn-ui/ui/tree/0e3abd65a97707f4a9cc3ed07bf5006e1cb67b13",
+      "ref": "0e3abd65a97707f4a9cc3ed07bf5006e1cb67b13",
+      "license": "MIT",
+      "licenseVerified": true,
+      "sha256": "875a566c6e09b970151718702552a3f30531a77204e0495aed3a1258bbc3b33e"
+    },
+    {
+      "id": "magic-ui:blur-fade",
+      "file": "magic-ui-blur-fade.json",
+      "source": "https://github.com/magicuidesign/magicui/tree/cdb348cb4c72a9b54b554d8617801e479fbc8714",
+      "ref": "cdb348cb4c72a9b54b554d8617801e479fbc8714",
+      "license": "MIT",
+      "licenseVerified": true,
+      "sha256": "766e4e8de03ba04aa1406b45a10f6f821110515e022948bb4bca5653d304df98"
+    },
+    {
+      "id": "reui:button",
+      "file": "reui-button.json",
+      "source": "https://github.com/keenthemes/reui/tree/ef0fe1252d9b24d69bdedee48a69ec9b29d1f217",
+      "ref": "ef0fe1252d9b24d69bdedee48a69ec9b29d1f217",
+      "license": "MIT",
+      "licenseVerified": true,
+      "sha256": "c3ed4527b0d5f223e594d8b0e4a2603ff0ab3bcba985396ba7f1a076b4732246"
+    }
+  ]
+}

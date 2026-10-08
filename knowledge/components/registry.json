@@ -1,0 +1,47 @@
+{
+  "version": 1,
+  "components": [
+    {
+      "id": "disclosure",
+      "useCase": "FAQ, expandable details",
+      "file": "components/disclosure.jsx",
+      "license": "MIT",
+      "licenseVerified": true,
+      "dependencies": [
+        "react@19.3.0"
+      ],
+      "css": "Native CSS; inherit role tokens",
+      "sourceMapping": "Intrinsic JSX maps to source; repeated instances share definitions",
+      "reducedMotion": "No animation required",
+      "sha256": "54d232974feb4aa798d0826a75002ddc85d254134958b3e239a00f6c584d002f"
+    },
+    {
+      "id": "tabs",
+      "useCase": "Topic navigation, alternate views",
+      "file": "components/tabs.jsx",
+      "license": "MIT",
+      "licenseVerified": true,
+      "dependencies": [
+        "react@19.3.0"
+      ],
+      "css": "Native CSS; inherit role tokens",
+      "sourceMapping": "Intrinsic JSX maps to source; repeated instances share definitions",
+      "reducedMotion": "No animation required",
+      "sha256": "fb0893936db9fa139bb63f5ebe752f3ac4769d005bea1b84cce1bd54235b63c3"
+    },
+    {
+      "id": "toggle",
+      "useCase": "Optional local comparison or view setting",
+      "file": "components/toggle.jsx",
+      "license": "MIT",
+      "licenseVerified": true,
+      "dependencies": [
+        "react@19.3.0"
+      ],
+      "css": "Native CSS; inherit role tokens",
+      "sourceMapping": "Intrinsic JSX maps to source; repeated instances share definitions",
+      "reducedMotion": "No animation required",
+      "sha256": "e6b99b528fec51547677663156f9719faa74a3992dbd14a5518e9e40582139e8"
+    }
+  ]
+}

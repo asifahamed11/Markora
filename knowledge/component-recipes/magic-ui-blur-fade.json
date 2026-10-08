@@ -1,0 +1,8 @@
+{
+  "id": "magic-ui:blur-fade",
+  "library": "magic-ui",
+  "name": "Magic UI BlurFade adaptation",
+  "sourceComponent": "apps/www/registry/magicui/blur-fade.tsx",
+  "adaptation": "CSS keyframes replace Motion's opacity, six-pixel offset and blur transition. Runs once on load, never waits for scroll visibility. No Motion dependency or exit animation. Content is visible immediately when reduced motion is requested.",
+  "css": "@keyframes __SECTION__-markora-blur-fade{from{opacity:.35;filter:blur(6px);transform:translateY(6px)}to{opacity:1;filter:blur(0);transform:none}}#__SECTION__ :where([data-markora-component=\"magic-ui:blur-fade\"]){animation:__SECTION__-markora-blur-fade 400ms cubic-bezier(.2,.65,.3,1) both}@media(prefers-reduced-motion:reduce){#__SECTION__ :where([data-markora-component=\"magic-ui:blur-fade\"]){animation:none;filter:none;transform:none;opacity:1}}"
+}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' data:; worker-src 'self'; object-src 'none'; base-uri 'none'">
+  <title>Markora</title>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#" aria-label="Markora home"><span class="brand-mark" data-emblem></span><span>Markora</span></a>
+      <div class="workspace-label">Workspace</div>
+      <button class="nav-item active" id="workspace-nav"><span class="icon" data-icon="grid"></span>Project studio<span class="nav-dot"></span></button>
+      <button class="nav-item" id="preview-nav"><span class="icon" data-icon="browser"></span>Live preview<span class="external-arrow">↗</span></button>
+      <button class="nav-item" id="settings-nav"><span class="icon" data-icon="settings"></span>Settings</button>
+      <div class="sidebar-bottom"><div class="local-chip"><span></span>Runs on your computer</div><p>Your files stay here. You choose<br>which AI gets your content.</p><div class="version">Markora <span>v0.7</span></div></div>
+    </aside>
+    <main>
+      <header class="topbar"><div class="breadcrumb">Workspace <span>/</span> <strong>Project studio</strong></div><button id="provider-badge" class="provider-badge"><span class="status-dot"></span><span id="provider-label">Connect your AI</span><span>⌄</span></button></header>
+      <div class="page-content">
+        <div class="page-heading"><div><div class="eyebrow">Your project</div><h1>What will you create?</h1><p>Describe your project, then refine it in the live preview.</p></div><div class="heading-stamp" aria-hidden="true"><span class="stamp-lines"></span><span>IDEA<br>TO OBJECT.</span></div></div>
+        <div id="demo-banner" class="demo-banner" hidden>OFFLINE DEMO <span>Illustrative content and preset edits. Connect an AI provider for real document analysis.</span></div>
+        <div class="studio-grid">
+          <div class="left-column">
+            <section class="card command-card">
+              <div class="card-header"><span class="card-kicker"><span class="step-number">01</span> Request</span><span class="small-pill">Voice first</span></div>
+              <h2 id="command-heading">What would you like to build?</h2><p id="command-description" class="card-description">Describe what you want to make, or speak it aloud.</p>
+              <div id="selection" class="selection" hidden><div><strong>Magic pen selection</strong><span id="selection-label"></span><code id="selection-source"></code></div><button id="clear-selection" class="icon-button" aria-label="Clear selection">×</button></div>
+              <div class="voice-zone"><button id="record" class="mic-button" aria-label="Record voice command"><span class="icon" data-icon="mic"></span></button><strong id="record-label">Tap to speak</strong><span id="record-hint">Speak naturally. Pause when you’re finished.</span><div class="voice-bars" id="voice-bars" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+              <div class="or-divider"><span>or type your idea</span></div>
+              <label class="sr-only" for="command">Website request or selected element edit</label><textarea id="command" rows="3" placeholder="Build a portfolio from my resume, with my projects and contact details."></textarea>
+              <div class="command-footer"><span><kbd>Ctrl</kbd> + <kbd>Enter</kbd> to send</span><button id="send" class="primary-button">Create a plan <span>↗</span></button></div>
+            </section>
+            <section class="card documents-card"><div class="card-header"><span class="card-kicker"><span class="step-number">02</span> Files</span><span id="document-count" class="quiet-label">Optional</span></div><h2>Project files</h2><p class="card-description">Attach a resume, notes or a project brief. Documents are optional.</p><button id="attach" class="upload-zone"><span class="icon" data-icon="upload"></span><strong>Choose documents</strong><span>PDF, DOCX, TXT, MD, JPG, PNG, WebP · Up to 15 MB each</span></button><ul id="documents" class="document-list"></ul><div class="privacy-note"><span class="icon" data-icon="lock"></span>Text and image pages are read when you create a plan, using your selected AI or local OCR.</div></section>
+          </div>
+          <div class="right-column">
+            <section class="card preview-card"><div class="card-header"><span class="card-kicker">Preview</span><span class="live-label"><span></span>Local preview</span></div><div class="browser-mock"><div class="browser-chrome"><div><i></i><i></i><i></i></div><span id="preview-address">local preview</span><span>↗</span></div><div class="preview-art"><div class="canvas-label">Preview example</div><div class="canvas-layout"><div class="canvas-nav"><i></i><span></span><span></span></div><div class="canvas-body"><div class="canvas-type"><small>Portfolio example</small><strong>Selected<br>work.</strong><span></span><span></span><b>Explore <i>&rarr;</i></b></div><div class="canvas-object"><div class="object-slab slab-one"></div><div class="object-slab slab-two"></div><div class="object-slab slab-three"></div></div></div><div class="canvas-bottom"><span>Illustrative layout</span><span>01 &mdash; 03</span></div></div></div></div><h2 id="preview-title">Your preview</h2><p id="preview-description" class="card-description">Your site opens in a real browser window.<br>Watch every section take shape as we build.</p><button id="open-preview" class="outline-button" disabled><span class="icon" data-icon="browser"></span>Open live preview <span>↗</span></button><div class="preview-toolbar"><button id="pen" disabled><span class="icon" data-icon="pen"></span><span id="pen-label">Magic pen</span></button><button id="undo" disabled title="Undo"><span class="icon" data-icon="undo"></span></button><button id="redo" disabled title="Redo"><span class="icon" data-icon="redo"></span></button><button id="export" disabled><span class="icon" data-icon="download"></span>Export</button></div></section>
+            <section class="card status-card"><div class="card-header"><span class="card-kicker">Activity</span><button id="cancel" class="text-button" hidden>Cancel</button></div><div class="status-line"><span id="status-symbol" class="status-symbol">✧</span><div><strong id="status-title">Ready</strong><p id="status-message">Choose a folder and describe your website.</p></div></div><div class="progress-track"><div id="progress-fill"></div></div><ol id="activity" class="activity"></ol></section>
+          </div>
+        </div>
+        <section id="plan-panel" class="card plan-card" hidden><div class="card-header"><span class="card-kicker"><span class="step-number">03</span> Build plan</span><span class="small-pill">Ready for your review</span></div><div class="plan-heading"><div><h2 id="plan-title"></h2><p id="plan-summary"></p></div><button id="build" class="primary-button">Build this website ↗</button></div><div class="plan-details"><div><span class="detail-label">SECTIONS</span><div id="plan-sections"></div></div><div><span class="detail-label">VISUAL DIRECTION</span><div id="palette"></div><p id="plan-layout"></p><small id="plan-type"></small></div></div><details id="art-direction-details" hidden><summary id="art-direction-title">Design concepts</summary><div id="art-direction-concepts"></div></details><details><summary>Review extracted information</summary><div id="profile-details"></div></details><div class="plan-voice-tip"><span class="icon" data-icon="mic"></span>Say “build it” to approve this plan, or type a revised request above.</div></section>
+        <footer class="page-footer"><span>Build and refine local projects.</span><span>Runs on your PC <span class="footer-star" data-emblem></span></span></footer>
+      </div>
+    </main>
+  </div>
+  <dialog id="settings-dialog" class="friendly-settings">
+    <div class="settings-heading"><div><div class="eyebrow">Markora</div><h2>Settings</h2><p>Connect your AI, check your microphone and choose how you work.</p></div><button id="close-settings" class="icon-button" aria-label="Close settings"><span class="ui-icon" data-icon="close"></span></button></div>
+    <nav class="settings-tabs" aria-label="Settings categories" role="tablist"><button type="button" role="tab" id="tab-ai" aria-controls="settings-ai" aria-selected="true">AI connection</button><button type="button" role="tab" id="tab-voice" aria-controls="settings-voice" aria-selected="false">Voice &amp; microphone</button><button type="button" role="tab" id="tab-preferences" aria-controls="settings-preferences" aria-selected="false">Preferences</button></nav>
+    <form id="settings-form">
+      <section id="settings-ai" class="settings-page" role="tabpanel" aria-labelledby="tab-ai">
+        <div class="setup-card"><div class="setup-card-heading"><span class="setup-icon ui-icon" data-icon="grid"></span><div><h3>AI connection</h3><p>Connect a service you use. Your saved key stays on this PC.</p></div></div>
+          <div class="form-row"><label>AI service<select id="provider"><option value="google-account">Google account</option><option value="chatgpt">ChatGPT account</option><option value="openrouter">OpenRouter</option></select></label></div>
+          <label id="key-field">Your API key<input id="api-key" type="password" autocomplete="off" placeholder="Paste a key, or leave blank to keep your saved key"><small id="key-state"></small></label>
+          <details class="advanced-settings"><summary>Advanced: choose a different model</summary><label>Model ID<input id="model" required maxlength="150"></label><p>Recommended model is chosen automatically when you change services.</p></details>
+          <div class="connection-note"><span class="ui-icon" data-icon="lock"></span> Your key is encrypted on this PC. It stays out of your website.</div>
+        </div>
+      </section>
+      <section id="settings-voice" class="settings-page" role="tabpanel" aria-labelledby="tab-voice" hidden>
+        <div class="setup-card"><div class="setup-card-heading"><span class="setup-icon ui-icon" data-icon="mic"></span><div><h3>Voice & microphone</h3><p>Magic pen turns on your microphone. Mark the page, say your change, then pause.</p></div></div>
+          <label>Speech recognition<select id="speech"><option value="local">Free local voice · no API key</option><option value="openai">OpenAI cloud voice · separate key required</option></select></label>
+          <div id="local-voice-setup" class="voice-setup-card"><div><strong id="voice-ready-title">Set up free voice once</strong><p id="voice-ready-description">Download a small speech engine and a 148 MB model. After setup, your audio stays on this PC.</p></div><button type="button" id="install-voice" class="primary-button">↓ Set up free voice</button><div id="voice-download" hidden role="status"><span id="voice-download-label"></span><progress id="voice-download-progress" max="100" value="0"></progress><button type="button" id="cancel-voice-download" class="text-button">Cancel download</button></div></div>
+          <label>What language will you speak?<select id="speech-language"><option value="auto">Detect automatically</option><option value="bn">Bengali</option><option value="en">English</option></select></label>
+
+          <label>When should listening finish?<select id="speech-pause"><option value="2200">After a comfortable pause · 2.2 seconds</option><option value="3200">Give me more time · 3.2 seconds</option><option value="1600">Quick commands · 1.6 seconds</option><option value="0">Only when I press Finish</option></select></label>
+          <label class="checkbox-row"><input type="checkbox" id="voice-review"><span>Let me review every voice edit<small>Uncertain words always wait for Apply. Clear words otherwise apply after 2.5 seconds.</small></span></label>
+          <label>Microphone<select id="microphone-device"><option value="">Windows default microphone</option></select><button type="button" id="refresh-mics" class="text-button">Refresh microphones</button></label>
+          <div id="whisper-fields" class="whisper-config"><details class="advanced-settings"><summary>Advanced: use your own Whisper files</summary><button type="button" id="choose-binary" class="outline-button">Choose speech engine</button><small id="binary-path">No engine selected</small><button type="button" id="choose-model" class="outline-button">Choose speech model</button><small id="model-path">No model selected</small></details></div>
+          <label id="speech-key-field" hidden>OpenAI speech key<input id="speech-key" type="password" autocomplete="off" placeholder="Your OpenRouter key cannot transcribe audio"><small id="speech-key-state"></small></label>
+          <div class="microphone-setup"><div><strong>Check your microphone</strong><p>Say a few words and watch the meter move.</p></div><button type="button" id="enable-mic" class="outline-button">Test microphone</button><meter id="mic-meter" min="0" max="1" value="0" aria-label="Microphone level"></meter><small id="mic-state">No recording is saved during this check.</small></div>
+          <div class="sample-setup"><strong>Try a command</strong><p>Try a short command in your preferred language, such as "Make this button green". This check does not change your page.</p><button type="button" id="test-command" class="outline-button">Speak a sample</button><button type="button" id="stop-sample" class="text-button" hidden>Stop</button><p id="sample-result" role="status">Your sample stays in memory until you close Settings.</p></div>
+        </div>
+      </section>
+      <section id="settings-preferences" class="settings-page" role="tabpanel" aria-labelledby="tab-preferences" hidden><div class="setup-card"><div class="setup-card-heading"><span class="setup-icon ui-icon" data-icon="settings"></span><div><h3>Workspace preferences</h3><p>Choose how your workspace opens and builds.</p></div></div><div id="preview-setting-slot"></div><label class="checkbox-row"><input type="checkbox" id="auto-build"><span>Build immediately after analysis<small>Leave off to review the plan first.</small></span></label><div id="integration-setting-slot"></div></div></section>
+      <div id="settings-error" class="inline-error" role="alert" hidden></div>
+      <div class="dialog-actions"><button type="button" id="forget-key" class="text-button">Remove saved AI key</button><button type="submit" class="primary-button">Save changes</button></div>
+    </form>
+  </dialog>
+  <dialog id="complete-dialog" class="complete-dialog"><div class="complete-mark">✓</div><div class="eyebrow">Website ready</div><h2>Complete</h2><p>Your website is ready in the live preview.<br>Pick something with the magic pen and tell us how to refine it.</p><button id="complete-close" class="primary-button">Back to workspace &rarr;</button></dialog>
+  <div id="toast" class="toast" role="status" hidden></div>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

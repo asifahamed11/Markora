@@ -1,0 +1,53 @@
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import {createHash} from 'node:crypto';
+import {parse} from '@babel/parser';
+import MagicString from 'magic-string';
+import {referenceText} from './design-context.js';
+import {readableInkColors} from './readable-colors.js';
+const directory=path.resolve(import.meta.dirname,'../knowledge/component-recipes');
+let catalog;
+async function integrationCatalog(){return catalog??=JSON.parse(await fs.readFile(path.resolve(directory,'../../integrations/manifest.json'),'utf8'));}
+const allLibraries=['shadcn','magic-ui','reui'];
+const marker='data-markora-component';
+export function componentPolicy(command='',config={}){
+ const text=command.toLowerCase().replace(/\b(?:no|without|avoid|do not use|don't use) custom (?:components?|design|ui)\b/g,'');
+ const custom=/(?<!no )(?:\bcustom (?:components?|design|ui)\b|\bbespoke\b|\b(?:build|design|make|create).{0,25}from scratch\b)|\b(?:no|without|avoid|do not use|don't use) (?:any )?(?:component )?librar(?:y|ies)\b|লাইব্রেরি ছাড়া|লাইব্রেরি ছাড়া|নিজস্ব কম্পোনেন্ট|নিজের কম্পোনেন্ট|কাস্টম (?:কম্পোনেন্ট|ডিজাইন)|library chara|custom component/i.test(text);
+ const motion=!/\b(?:no|without|disable|avoid) (?:any )?(?:animations?|motion)\b|\b(?:don't|do not) (?:add|use) animations?\b|অ্যানিমেশন (?:ছাড়া|ছাড়া|বন্ধ|লাগবে না)|animation (?:chara|lagbe na|bondho)/i.test(text);
+ const names={'magic-ui':'magic[ -]?ui',shadcn:'shadcn(?:/ui)?',reui:'reui'};
+ const excluded=allLibraries.filter(id=>new RegExp("(?:no|without|avoid|do not use|don't use)\\s+"+names[id],'i').test(text));
+ const named=allLibraries.filter(id=>new RegExp(names[id],'i').test(text)&&!excluded.includes(id));
+ const libraries=(named.length?named:allLibraries).filter(id=>!excluded.includes(id));
+ const mode=custom||config.toolkit?.design===false||!libraries.length?'custom':'library';
+ return {mode,motion,libraries:mode==='library'?libraries:[],reason:custom?'Explicit custom component request':config.toolkit?.design===false?'Design toolkit disabled':!libraries.length?'All reviewed libraries excluded':named.length||excluded.length?'Requested library preference':'Default reviewed component pack'};
+}
+export async function componentRecipes(){const manifest=JSON.parse(await fs.readFile(path.join(directory,'manifest.json'),'utf8')),catalog=await integrationCatalog();const result=[];for(const item of manifest.items){const file=path.resolve(directory,item.file);if(!file.startsWith(directory+path.sep)||(await fs.lstat(file)).isSymbolicLink())throw new Error('Unsafe component recipe path.');const bytes=await fs.readFile(file);if(createHash('sha256').update(bytes).digest('hex')!==item.sha256)throw new Error('Component recipe integrity mismatch.');const recipe=JSON.parse(bytes),pack=catalog.referencePacks.find(pack=>pack.id===recipe.library);if(pack?.license!=='MIT'||!pack.files[`references/${pack.id}/${recipe.sourceComponent}`])throw new Error('Component source is not in the reviewed MIT pack.');await referenceText(catalog,pack.id,recipe.sourceComponent);result.push({...recipe,source:pack.source,ref:pack.ref});}return result;}
+export async function componentPrompt(command,config){const policy=componentPolicy(command,config);return {ids:policy.mode==='library'?policy.libraries.map(id=>'components:'+id):['components:custom'],layer:'components',atomic:true,text:policy.mode==='library'?`Default component pack: ${policy.libraries.join(', ')}. Use compatible intrinsic JSX; Markora applies reviewed local Button and BlurFade adaptations with their notices. Keep literal text, actual links and working handlers. Optional data-markora-component values: shadcn:button on a button/action link, reui:button on an outline button/action link, magic-ui:blur-fade on a content wrapper. No new imports, dependencies or runtime downloads. Keep section CSS intentional; it overrides default recipe styles. ${policy.motion?'Use one restrained entrance, purposeful hover feedback and an immediate reduced-motion path.':'No animation or motion: the user explicitly disabled it.'} User-specific design, content, colours, shapes and custom component requests take priority.`:`Custom component mode: follow the user's requested design and build original compatible JSX and CSS. Do not attach default library styles or library markers. ${policy.motion?'':'No animation or motion.'} Preserve scope, real content and keyboard behaviour.`};}
+function walk(node,visit){if(!node||typeof node!=='object')return;visit(node);for(const [key,value]of Object.entries(node)){if(['loc','extra','comments','tokens'].includes(key))continue;if(Array.isArray(value))value.forEach(child=>walk(child,visit));else if(value&&typeof value==='object')walk(value,visit);}}
+function exportedBody(ast){const statement=ast.program.body.find(n=>n.type==='ExportDefaultDeclaration'),value=statement?.declaration;if(value?.type!=='Identifier')return value;for(const item of ast.program.body){if(item.id?.name===value.name)return item;if(item.type==='VariableDeclaration'){const declaration=item.declarations.find(n=>n.id?.name===value.name);if(declaration)return declaration.init;}}return value;}
+export function normalizeInteractiveSVG(jsx){const ast=parse(jsx,{sourceType:'module',plugins:['jsx']}),output=new MagicString(jsx);
+ // role=img hides interactive descendants from the accessibility tree. A
+ // labelled SVG with actual controls is a group, preserving their semantics.
+ walk(ast,node=>{if(node.type!=='JSXElement'||node.openingElement.name.name!=='svg')return;const role=node.openingElement.attributes.find(a=>a.type==='JSXAttribute'&&a.name.name==='role'&&a.value?.value==='img');if(!role)return;let interactive=false;for(const child of node.children)walk(child,n=>{if(n.type==='JSXAttribute'&&(n.name.name==='onClick'||n.name.name==='role'&&['button','link','tab'].includes(n.value?.value)))interactive=true;});if(interactive)output.overwrite(role.value.start,role.value.end,'"group"');});
+ return output.toString();}
+export async function applyComponentRecipes(section,policy){
+ section={...section,jsx:normalizeInteractiveSVG(section.jsx),css:readableInkColors(section.css)};
+ const motionOverride=policy.motion?'':`\n#${section.id},#${section.id} *{animation:none!important;transition:none!important;scroll-behavior:auto!important}`;
+ const withoutMotionSuffix=css=>motionOverride&&css.endsWith(motionOverride)?css.slice(0,-motionOverride.length):css;
+ if(policy.mode!=='library')return {...section,css:withoutMotionSuffix(section.css)+motionOverride,components:[]};
+ const recipes=await componentRecipes(),allowed=recipes.filter(recipe=>policy.libraries.includes(recipe.library)&&(policy.motion||recipe.library!=='magic-ui')),ast=parse(section.jsx,{sourceType:'module',plugins:['jsx']}),output=new MagicString(section.jsx),selected=new Map();let rootMarked=false,controls=0;
+
+ const add=(node,recipe)=>{if(!recipe)return;output.appendLeft(node.end-(node.selfClosing?2:1),` ${marker}="${recipe.id}"`);selected.set(recipe.id,recipe);};
+ walk(exportedBody(ast),node=>{if(node.type!=='JSXOpeningElement'||node.name.type!=='JSXIdentifier')return;const tag=node.name.name,attribute=node.attributes.find(attr=>attr.type==='JSXAttribute'&&attr.name.name===marker);if(attribute){const recipe=allowed.find(r=>r.id===attribute.value?.value);if(!recipe){if(!policy.motion&&attribute.value?.value==='magic-ui:blur-fade'){output.remove(attribute.start,attribute.end);}else throw new Error('This library marker does not match the current component preference.');}else{selected.set(recipe.id,recipe);if(recipe.library==='magic-ui')rootMarked=true;else controls++;}return;}
+  if(!rootMarked&&['div','main','article','header','section'].includes(tag)){const recipe=allowed.find(r=>r.library==='magic-ui');if(recipe){add(node,recipe);rootMarked=true;}}
+  const actionLink=tag==='a'&&node.attributes.some(attr=>attr.type==='JSXAttribute'&&attr.name.name==='href')&&node.attributes.some(attr=>attr.type==='JSXAttribute'&&(attr.name.name==='className'&&/(?:button|btn|cta|action)/i.test(attr.value?.value||'')||attr.name.name==='role'&&attr.value?.value==='button'));
+  if(tag==='button'||actionLink){const primary=allowed.find(r=>r.library==='shadcn'),outline=allowed.find(r=>r.library==='reui');add(node,controls++===0?primary||outline:outline||primary);}
+ });
+ const notice=[...selected.values()].map(recipe=>`/* ${recipe.name}; ${recipe.source}; MIT, see COMPONENT-LICENSES.md. */\n`+recipe.css.replaceAll('__SECTION__',section.id)).join('\n');
+ const start='/* Markora component defaults: start */\n',end='/* Markora component defaults: end */\n';let originalCSS=withoutMotionSuffix(section.css);
+ if(originalCSS.startsWith(start)){const offset=originalCSS.indexOf(end,start.length);if(offset!==-1)originalCSS=originalCSS.slice(offset+end.length);}
+ return {...section,jsx:output.toString(),css:start+notice+'\n'+end+originalCSS+motionOverride,components:[...selected.values()].map(({id,name,library,source,ref,adaptation})=>({id,name,library,source,ref,adaptation}))};
+}
+export function componentMarkers(jsx){const ids=new Set();walk(parse(jsx,{sourceType:'module',plugins:['jsx']}),node=>{if(node.type==='JSXAttribute'&&node.name?.name===marker){const id=node.value?.value;if(!['shadcn:button','reui:button','magic-ui:blur-fade'].includes(id))throw new Error('Unknown or dynamic component marker.');ids.add(id);}});return ids;}
+export function componentEvidence(files){const ids=new Set();for(const file of files.filter(file=>/^src\/sections\/.*\.jsx$/.test(file.path)))for(const id of componentMarkers(file.content))ids.add(id);const css=files.find(file=>file.path==='src/styles.css')?.content||'';return [...ids].filter(id=>css.includes(`[data-markora-component="${id}"]`)).map(id=>({id,label:id==='shadcn:button'?'shadcn/ui Button':id==='reui:button'?'ReUI Button':'Magic UI BlurFade'}));}
+export async function componentNotices(libraries){const catalog=await integrationCatalog();const parts=['# Component adaptations','The generated page uses dependency-free adaptations of reviewed MIT sources. These are native JSX/CSS variants, not the complete upstream React packages.'];for(const id of [...new Set(libraries)]){const pack=catalog.referencePacks.find(p=>p.id===id);if(pack?.license!=='MIT')throw new Error('Unreviewed component licence.');const license=Object.keys(pack.files).find(file=>/\/LICENSE(\.md|\.txt)?$/i.test(file));if(!license)throw new Error('Missing component licence.');parts.push(`## ${id}\nSource: ${pack.source}\nPinned revision: ${pack.ref}\n\n`+await referenceText(catalog,id,license.slice(`references/${id}/`.length)));}return parts.join('\n\n')+'\n';}

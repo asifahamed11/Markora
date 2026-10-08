@@ -1,0 +1,18 @@
+.pet-body{transform-origin:80px 112px;animation:pet-breathe 5.6s ease-in-out infinite}
+.pet-shadow{transform-origin:80px 130px;animation:pet-ground 5.6s ease-in-out infinite}
+.arm-right{transform-origin:123px 73px;animation:pet-greet 1.2s ease-in-out 1}
+#pet-button:hover .arm-right{animation:pet-greet 900ms ease-in-out 1}
+#bot-root[data-pet-state=thinking] .pet-body{animation:pet-think 3.2s ease-in-out infinite}
+#bot-root[data-pet-state=listening] .pet-body{animation:pet-listen 2.4s ease-in-out infinite}
+#bot-root[data-pet-state=listening] .pet-indicator{fill:#3c8c68;animation:pet-signal 1.8s ease-in-out infinite}
+#bot-root[data-pet-state=error] .pet-indicator{fill:#b07653;animation:none}
+.pet-dock button.dragging .pet-body{animation:none}
+.complete .pet-body{animation:pet-celebrate 620ms ease-in-out 2}
+@keyframes pet-breathe{0%,100%{transform:translateY(0) scaleY(1)}50%{transform:translateY(-1.6px) scaleY(1.012)}}
+@keyframes pet-ground{50%{transform:scaleX(.94);opacity:.11}}
+@keyframes pet-greet{0%,100%{transform:rotate(0)}30%{transform:rotate(-13deg)}65%{transform:rotate(8deg)}}
+@keyframes pet-think{0%,100%{transform:rotate(0)}50%{transform:rotate(-2deg) translateY(-1px)}}
+@keyframes pet-listen{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+@keyframes pet-signal{50%{opacity:.4}}
+@keyframes pet-celebrate{0%,100%{transform:translateY(0)}45%{transform:translateY(-5px) rotate(2deg)}}
+@media(prefers-reduced-motion:reduce){.pet-body,.pet-shadow,.arm-right,.eyes,.pet-leaf,.pet-indicator,#pet-button,.pet,.pet-look{animation:none!important;transition:none!important;transform:none!important}}

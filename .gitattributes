@@ -1,0 +1,16 @@
+* text=auto
+*.js text eol=lf
+*.cjs text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.svg text eol=lf
+*.yml text eol=lf
+*.nsh text eol=crlf
+*.png binary
+*.ico binary
+*.woff2 binary
+# Pinned resources are verified by SHA-256; preserve their exact source bytes.
+integrations/** -text
+knowledge/** -text

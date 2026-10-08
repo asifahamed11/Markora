@@ -1,0 +1,69 @@
+{
+  "version": 1,
+  "items": [
+    {
+      "id": "core",
+      "file": "rules/core.md",
+      "title": "core",
+      "license": "MIT",
+      "licenseVerified": true,
+      "enabled": true,
+      "version": 1,
+      "stages": [
+        "plan",
+        "build",
+        "edit",
+        "check"
+      ],
+      "source": "Original Markora guidance",
+      "sha256": "ba4290d52b8d3daf727659c4e692780c77fc1fb3575a3f106275fbdf3a50c885"
+    },
+    {
+      "id": "design",
+      "file": "rules/design.md",
+      "title": "design",
+      "license": "MIT",
+      "licenseVerified": true,
+      "enabled": true,
+      "version": 1,
+      "stages": [
+        "plan",
+        "build"
+      ],
+      "source": "Original Markora guidance",
+      "sha256": "c203983ab6d86954babf9def478079fdcc65a667377c9b3813731f7851ddffa6"
+    },
+    {
+      "id": "edit",
+      "file": "rules/edit.md",
+      "title": "edit",
+      "license": "MIT",
+      "licenseVerified": true,
+      "enabled": true,
+      "version": 1,
+      "stages": [
+        "edit",
+        "build"
+      ],
+      "source": "Original Markora guidance",
+      "sha256": "0043fef0ea0047d42fc097b16500dcd021a190555455eeb051501161a2d3d7c6"
+    },
+    {
+      "id": "check",
+      "file": "rules/check.md",
+      "title": "check",
+      "license": "MIT",
+      "licenseVerified": true,
+      "enabled": true,
+      "version": 1,
+      "stages": [
+        "check",
+        "build"
+      ],
+      "source": "Original Markora guidance",
+      "sha256": "f2a02ccd6e0a38703122b31f3778eac766ad4d3ab2df750f1a80051f716f5287"
+    }
+  ],
+  "thirdPartyManifest": "../integrations/manifest.json",
+  "notes": "Third-party source and notices remain in the integrity-checked integrations pack. No duplicate knowledge tree or registry downloads."
+}

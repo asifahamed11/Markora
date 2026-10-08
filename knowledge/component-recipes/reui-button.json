@@ -1,0 +1,8 @@
+{
+  "id": "reui:button",
+  "library": "reui",
+  "name": "ReUI Button adaptation",
+  "sourceComponent": "registry/bases/radix/ui/button.tsx",
+  "adaptation": "Native JSX and scoped CSS replace the reviewed Button outline variant's class-variance-authority, Slot, cn and framework styling. Preserve native keyboard activation and supplied event handlers.",
+  "css": "#__SECTION__ :where([data-markora-component=\"reui:button\"]){display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:10px 20px;background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:var(--radius,6px);font:inherit;font-weight:500;line-height:1.4;text-decoration:none;cursor:pointer;transition:border-color 180ms ease,background-color 180ms ease}#__SECTION__ :where([data-markora-component=\"reui:button\"]:hover){border-color:var(--ink);background:color-mix(in srgb,var(--ink) 6%,var(--paper))}#__SECTION__ :where([data-markora-component=\"reui:button\"]:focus-visible){outline:3px solid var(--accent);outline-offset:4px}#__SECTION__ :where([data-markora-component=\"reui:button\"]:disabled){opacity:.5;cursor:not-allowed}@media(prefers-reduced-motion:reduce){#__SECTION__ :where([data-markora-component=\"reui:button\"]){transition:none}}"
+}

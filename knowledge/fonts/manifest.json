@@ -1,0 +1,22 @@
+{
+  "family": "Noto Sans Bengali",
+  "license": "OFL-1.1",
+  "licenseSource": "https://raw.githubusercontent.com/google/fonts/main/ofl/notosansbengali/OFL.txt",
+  "licenseSHA256": "754f0e221aa7d5a915489f3bf1f20fe53ddc35ab2834a4d91656d78f9622de70",
+  "files": [
+    {
+      "file": "bengali-0.woff2",
+      "source": "https://fonts.gstatic.com/s/notosansbengali/v33/Cn-fJsCGWQxOjaGwMQ6fIiMywrNJIky6nvd8BjzVMvJx2mc4I3mYvNY.woff2",
+      "sha256": "4ccdc6269af7581727fc3eea491831bda1962c1baaca7f2c0dec054bfddde478",
+      "weight": "400",
+      "unicodeRange": "U+0951-0952, U+0964-0965, U+0980-09FE, U+1CD0, U+1CD2, U+1CD5-1CD6, U+1CD8, U+1CE1, U+1CEA, U+1CED, U+1CF2, U+1CF5-1CF7, U+200C-200D, U+20B9, U+25CC, U+A8F1, U+11DF0-11DF1"
+    },
+    {
+      "file": "bengali-1.woff2",
+      "source": "https://fonts.gstatic.com/s/notosansbengali/v33/Cn-fJsCGWQxOjaGwMQ6fIiMywrNJIky6nvd8BjzVMvJx2mc4I3mYvNY.woff2",
+      "sha256": "4ccdc6269af7581727fc3eea491831bda1962c1baaca7f2c0dec054bfddde478",
+      "weight": "600",
+      "unicodeRange": "U+0951-0952, U+0964-0965, U+0980-09FE, U+1CD0, U+1CD2, U+1CD5-1CD6, U+1CD8, U+1CE1, U+1CEA, U+1CED, U+1CF2, U+1CF5-1CF7, U+200C-200D, U+20B9, U+25CC, U+A8F1, U+11DF0-11DF1"
+    }
+  ]
+}

@@ -1,0 +1,244 @@
+{
+  "schema": 1,
+  "reviewedAt": "2026-10-07",
+  "skills": [
+    {
+      "id": "frontend-design",
+      "repo": "anthropics/skills",
+      "ref": "683bc88e56f3e09ba94f7055977f3d3aa499f202",
+      "path": "skills/frontend-design",
+      "license": "Apache-2.0",
+      "source": "https://github.com/anthropics/skills/tree/683bc88e56f3e09ba94f7055977f3d3aa499f202/skills/frontend-design",
+      "files": {
+        "skills/frontend-design/LICENSE.txt": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
+        "skills/frontend-design/SKILL.md": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3"
+      }
+    },
+    {
+      "id": "webapp-testing",
+      "repo": "anthropics/skills",
+      "ref": "683bc88e56f3e09ba94f7055977f3d3aa499f202",
+      "path": "skills/webapp-testing",
+      "license": "Apache-2.0",
+      "source": "https://github.com/anthropics/skills/tree/683bc88e56f3e09ba94f7055977f3d3aa499f202/skills/webapp-testing",
+      "files": {
+        "skills/webapp-testing/examples/console_logging.py": "ea46877289acb82da7e7ce59d0bc37c8977cd57e2a006d0c88d7a1c625bf95da",
+        "skills/webapp-testing/examples/element_discovery.py": "d63c89604a22f8845d724e95dda45db49b1bf57c25ce0a83afbb7b8da3d402f0",
+        "skills/webapp-testing/examples/static_html_automation.py": "9d533aafb875ee3ab8b8ebf8f5b9003ac8d999da3d09b285cce252e623140064",
+        "skills/webapp-testing/LICENSE.txt": "bc6b3af2f331cbc7fb0da1344efb2cbe5877a31498b4d70dbc7000f3405a1362",
+        "skills/webapp-testing/scripts/with_server.py": "b0dcf4918935b795f4eda9821579b9902119235ff4447f687a30286e7d0925fd",
+        "skills/webapp-testing/SKILL.md": "51b7349e77ec63b7744a6f63647e7566a0b4d2e301121cc10e8c2113af6556a2"
+      }
+    },
+    {
+      "id": "react-best-practices",
+      "repo": "vercel-labs/agent-skills",
+      "ref": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "path": "skills/react-best-practices",
+      "license": "MIT",
+      "source": "https://github.com/vercel-labs/agent-skills/tree/063bee94c3f4df8453406c830b0a7df0f2860278/skills/react-best-practices",
+      "files": {
+        "skills/react-best-practices/AGENTS.md": "fc93e7421177bbf869cce892bc60a6c83a4517d974bc3bf65c4e2c1e58a6ccf6",
+        "skills/react-best-practices/metadata.json": "c4e18bac3290fbe1b471a605867d4df68b03144ea26b8befdbe8f9d8fd124354",
+        "skills/react-best-practices/README.md": "9eafb2123d3b8b2aef41fba0db2648a3f4f49996f8c7c8bb2c86263befd8b48a",
+        "skills/react-best-practices/rules/_sections.md": "01c59969e4e867f0708c8f8ef9c6d87fab9a07d0586244f429ff84013db8a115",
+        "skills/react-best-practices/rules/_template.md": "99df2a3ea088c6c22de2484ddc7e964d0e9923846f44c63380343ecc64455442",
+        "skills/react-best-practices/rules/advanced-effect-event-deps.md": "55ed8f9f27a1bff803d6fa55828176207714b02123cbb97ddb8a90d88024a723",
+        "skills/react-best-practices/rules/advanced-event-handler-refs.md": "a3097edeecfb2ff6851cd66ed8cdf0617c3c88180504bee824aa6e75a215bbbc",
+        "skills/react-best-practices/rules/advanced-init-once.md": "3e4dc22173eb0e2b6dcf583e3babd862b8696328f8f59aee7c4d746c5bc05f6c",
+        "skills/react-best-practices/rules/advanced-use-latest.md": "8a3f64dfe5a77d1564248faf17fe662ae75b55d497a243cb30b38eb07ccbbf9a",
+        "skills/react-best-practices/rules/async-api-routes.md": "523338540d73427dc14c0cbb19f2741ebccdf8b105a7b2c1b33d2905cf237a42",
+        "skills/react-best-practices/rules/async-cheap-condition-before-await.md": "03107c1f70a293cd58a8abc5474c5548e20ea4efdf01b6d45aae7ad0ac1cb32c",
+        "skills/react-best-practices/rules/async-defer-await.md": "f3c142d090615abdcc99d31c123be37b31f0f1ed8d9ec9f7789a3bc6883ae0fb",
+        "skills/react-best-practices/rules/async-dependencies.md": "16ef469f877e30c6b8e1e1b4bc3e527312fa3c6318cb785a4eca186ea236131a",
+        "skills/react-best-practices/rules/async-parallel.md": "6d2f841896279e976dfcdc1ac89e70771ac188baadfd43c096b5706cb838b961",
+        "skills/react-best-practices/rules/async-suspense-boundaries.md": "de05fedac2eb7ae563b887b5a424464ec3dfaf84e5b7797467ebe2a796ac8afc",
+        "skills/react-best-practices/rules/bundle-analyzable-paths.md": "62090b5c815fd71bf1133dce754f51abc16a9456d0ccd025fd627de27726e92a",
+        "skills/react-best-practices/rules/bundle-barrel-imports.md": "e648f6d54525f07a691357040ca5bff6ea3424788a91ff63812adb29622a671b",
+        "skills/react-best-practices/rules/bundle-conditional.md": "09c8259c3efb04fc0abb8e412ccbda217c222ae8118516283e571c995fe3a7d4",
+        "skills/react-best-practices/rules/bundle-defer-third-party.md": "3719fb47b191e8db4fe22686ec88448ad5af9e6838585425abbe103d0b642e37",
+        "skills/react-best-practices/rules/bundle-dynamic-imports.md": "401817a7369f315fc5a68a1095742ff7d53d0461906880dc9d64a41495ee1986",
+        "skills/react-best-practices/rules/bundle-preload.md": "d1f7cc28da7cd5ab249acd287edc5b761afcfb194e9cb62cd44c5f3543db2de2",
+        "skills/react-best-practices/rules/client-event-listeners.md": "242a873349febc1ce685e85617994784dbab92c2eaa68aed7fed5a83e7680e93",
+        "skills/react-best-practices/rules/client-localstorage-schema.md": "0fb7cdf9dc93fdf22f87e3669f953fb9d4ac9b0be42eec4a29fe9a2560610b88",
+        "skills/react-best-practices/rules/client-passive-event-listeners.md": "1f35016f9053de69e884ee9be00654e37979c2ca85f5e57764dc2626ff7acb4b",
+        "skills/react-best-practices/rules/client-swr-dedup.md": "644652c39c6cc00de8d1c77a7273612e868dc3f7edda30764164c12ec0f764a3",
+        "skills/react-best-practices/rules/js-batch-dom-css.md": "480b891b9eaf96e929dc1e964274a4828e3a78009b7d00ccd965a0d425215959",
+        "skills/react-best-practices/rules/js-cache-function-results.md": "3daaa11d24f4295cb6be8bc6f407f2ce83cc7b5bd1f0e68891ea8ab835721dc7",
+        "skills/react-best-practices/rules/js-cache-property-access.md": "73e47431e74878a927061bf0ddc7cd91a7556cb35d2573f3421e82300d9ae311",
+        "skills/react-best-practices/rules/js-cache-storage.md": "11b826b0433898c1ece2d3547010d8e77db9fb240185748c45db91493de9b6cc",
+        "skills/react-best-practices/rules/js-combine-iterations.md": "71add08aeeb43091d4ff4c0b2842cce8b4bdef8ad3e732cc034bb5a84827e746",
+        "skills/react-best-practices/rules/js-early-exit.md": "925ce5ce87f3347186ca62212f29cc6baa2b8c85a96d2720ad07c3d0abf781c0",
+        "skills/react-best-practices/rules/js-flatmap-filter.md": "9e5b166a41914d975bef7635467f8fb32cd98b5c3126c0bc6f163490812fb5f0",
+        "skills/react-best-practices/rules/js-hoist-regexp.md": "f9e9aef2f7c2307dd7310f283df85dcada45fc43e9bb941b0c3aa414dec21ec4",
+        "skills/react-best-practices/rules/js-index-maps.md": "5df1bdc2cfabb2c98abd55d26762e5c18189535c2e686184f426082e62920391",
+        "skills/react-best-practices/rules/js-length-check-first.md": "8b54a311c826b299272f29187fc58bc55772a04c4a72eeb29456ee96dc9fc624",
+        "skills/react-best-practices/rules/js-min-max-loop.md": "87dfb67e2f39df6ad8bcfb5b78c5fb364d3c07554ad188a202408d99f3763421",
+        "skills/react-best-practices/rules/js-request-idle-callback.md": "ee08f83905b4011abbc33d594033157d77561b5bbd9b36b04f0f409581ffec32",
+        "skills/react-best-practices/rules/js-set-map-lookups.md": "a7fd781a6ba9ad49065961b6f9a90ef486bf6b648390e1a08704025f98e1642b",
+        "skills/react-best-practices/rules/js-tosorted-immutable.md": "d0a5e1b0fec48a0a81397957e2f068e224329f7c42cb5feeed8aae6fa64025e8",
+        "skills/react-best-practices/rules/rendering-activity.md": "1e5e7eaf3555e61d6a2e900089c676527d26259501db5594f59544b6c664f85a",
+        "skills/react-best-practices/rules/rendering-animate-svg-wrapper.md": "9c6ae0ca7a51434e803887c64cded760956579a1452ccb80a461a03f9c937c77",
+        "skills/react-best-practices/rules/rendering-conditional-render.md": "2ec2fa23c4148285144687050c52369adba3da2fbe3d486f8d3e0aad8f06f2bc",
+        "skills/react-best-practices/rules/rendering-content-visibility.md": "64eee6d5b916fe74df33363994b27fc7f71bea3bcedc7ee04bda23107ca3e6e4",
+        "skills/react-best-practices/rules/rendering-hoist-jsx.md": "93b229560fae92005ed9a2a829064607b39b2e984e92d221d05b2d41df2b7c0e",
+        "skills/react-best-practices/rules/rendering-hydration-no-flicker.md": "dc7ab358c67c177bca6e6f360fbc935ebe4efa928c0ba3ebd3f9f3d9e2000ca3",
+        "skills/react-best-practices/rules/rendering-hydration-suppress-warning.md": "915bacb934e2927d84b37a3f3d225a47b309ac8f9e494ed2bcb66ce07c5676a2",
+        "skills/react-best-practices/rules/rendering-resource-hints.md": "351b1095d641717b930f1b2253282b7120af3023bc74e06c17675168d4286864",
+        "skills/react-best-practices/rules/rendering-script-defer-async.md": "4cea07b7875ba7fc2c7465ff23b63a2bb334f90aaf2d9293d38d67b05fdb32ab",
+        "skills/react-best-practices/rules/rendering-svg-precision.md": "ed468533f6e95f622859c884b122cf21f9f593ed6bb3d500a54de4b9f9bcb9fb",
+        "skills/react-best-practices/rules/rendering-usetransition-loading.md": "3a1249c3f13026b6f54ab5712c388df219d6af01b12aa542749acd99a46f4bc1",
+        "skills/react-best-practices/rules/rerender-defer-reads.md": "234050a77faf50cb306be10a9e15bd4421134ab5907e75f13e6d78e2bd262dc9",
+        "skills/react-best-practices/rules/rerender-dependencies.md": "17eb5830956fb56486fd3cfc7431f5849d39751730c05ad9e77dd4f0c27169c5",
+        "skills/react-best-practices/rules/rerender-derived-state-no-effect.md": "cb11ec76f50aa7b6847269f02d79b120c889a30d9ecd2c1d578f75144419c77a",
+        "skills/react-best-practices/rules/rerender-derived-state.md": "1c326bb67b01fb084eb00c8911b0a7cff54681c2315b629f88e49b64eaa6481d",
+        "skills/react-best-practices/rules/rerender-functional-setstate.md": "5e68df6b2ae8058e67f476ff1ac67bde159f5a9d18df439e46eabcdeb7b52e58",
+        "skills/react-best-practices/rules/rerender-lazy-state-init.md": "4ae844740f266fc8cbf050701230286624a2440ec5be67b9a63d9edc3c580573",
+        "skills/react-best-practices/rules/rerender-memo-with-default-value.md": "81c47476564ad8a79fc68fc442734255ca7d6829424359464503fda0a9f9a0dd",
+        "skills/react-best-practices/rules/rerender-memo.md": "1f258990c2f27ff6256b3cc5c43300631bb3f0d81f749aed08d07fcdcc131dd1",
+        "skills/react-best-practices/rules/rerender-move-effect-to-event.md": "abc2cbf167bee056743023351e96806a411d3398da8802093620aecf0721f029",
+        "skills/react-best-practices/rules/rerender-no-inline-components.md": "1cc32907a770272524ba682eef9e7efdd8ad4533b6f89b718a1fcd7d1d0eb6a3",
+        "skills/react-best-practices/rules/rerender-simple-expression-in-memo.md": "5bdcf2d1558ba5204e643c887b7b4060f89630969425651eb68e96427d97f800",
+        "skills/react-best-practices/rules/rerender-split-combined-hooks.md": "6f45d703343484ef9acef9388397f3642966ae6a5a258899a0cf1f9977cfbf6c",
+        "skills/react-best-practices/rules/rerender-transitions.md": "60f4033909a62df5e5b8c601494f9e50a562e2f8c1c2d81eac24f38142265f1c",
+        "skills/react-best-practices/rules/rerender-use-deferred-value.md": "8c3579576a61a949884167745dcfaf1d5426ba305cc61fd0a79602d70fda4909",
+        "skills/react-best-practices/rules/rerender-use-ref-transient-values.md": "f1a649af9d1d0b5c762f6c9c4c1c70c90d7df82aa10296ee87aadb78c1b76c54",
+        "skills/react-best-practices/rules/server-after-nonblocking.md": "d0b8d24a3db9f0f65f9e2bddbf230b0e03a5f60e1229d93a4a18f5e7a991c7c2",
+        "skills/react-best-practices/rules/server-auth-actions.md": "a2ca8aa102839251c7971ec784560fab943c20b36fe6f80365d4110c13260c23",
+        "skills/react-best-practices/rules/server-cache-lru.md": "1924b64561841923b88a657085097a0aeba3e0ba2d5470b9f5c15cc10d6ae70f",
+        "skills/react-best-practices/rules/server-cache-react.md": "fddeea6c870bb3da4134b61d54b7d09b83d2603f929b7547cd3dc1dc269edd5c",
+        "skills/react-best-practices/rules/server-dedup-props.md": "c2747424cdac46be62f835f245a0aa887b0090b416d28e2ac8676702645eeb37",
+        "skills/react-best-practices/rules/server-hoist-static-io.md": "5abea4dd882b13661bd5f7dfb93f9e547d5f08176c61c448ade91b210ed5d49f",
+        "skills/react-best-practices/rules/server-no-shared-module-state.md": "4d869bf1cd2f1632e5ca4c0e64b1cf0e71c5f5a0f940bc8a22174d205e735ed7",
+        "skills/react-best-practices/rules/server-parallel-fetching.md": "569a2e9fc04f9606686cd75c5894ef8781b502786a7fffe241396846c7733472",
+        "skills/react-best-practices/rules/server-parallel-nested-fetching.md": "ad5d9656984d4a959997a2367bf59cc6632297b4634a1dd13a087939d83f30b3",
+        "skills/react-best-practices/rules/server-serialization.md": "f4c7d68b29c82381baad059c4a7f09e868e71ec9c3115a26ad3ae7d24c0dfe1f",
+        "skills/react-best-practices/SKILL.md": "71ed7794962fa6e803ee83030517b5b93a9f70fbfeb431ec4535c5480a8d8355"
+      }
+    }
+  ],
+  "packages": [
+    {
+      "name": "@playwright/mcp",
+      "version": "0.0.83",
+      "license": "Apache-2.0",
+      "source": "https://github.com/microsoft/playwright-mcp"
+    },
+    {
+      "name": "@modelcontextprotocol/sdk",
+      "version": "1.32.1",
+      "license": "MIT",
+      "source": "https://github.com/modelcontextprotocol/typescript-sdk"
+    },
+    {
+      "name": "axe-core",
+      "version": "4.13.0",
+      "license": "MPL-2.0",
+      "source": "https://github.com/dequelabs/axe-core"
+    }
+  ],
+  "referencePacks": [
+    {
+      "id": "design-volt",
+      "repo": "voltagent/awesome-design-md",
+      "ref": "13be5c05c63be24b57581162364167028020f043",
+      "license": "MIT",
+      "source": "https://github.com/voltagent/awesome-design-md/tree/13be5c05c63be24b57581162364167028020f043",
+      "files": {
+        "references/design-volt/LICENSE": "6d4bdc9a9cf30e7beb593475fdcdbf29f981ea6bd7923f202866145409f87b44",
+        "references/design-volt/design-md/notion/DESIGN.md": "fa9d6e78216d8f3e5d3990709ca2de6bc2e268e945bb94f255fd1bfb15455266",
+        "references/design-volt/design-md/clay/DESIGN.md": "1abd803a207fbe950a06e155adcd6013c2e149b13e7b88844f5069f9d3d99eb3",
+        "references/design-volt/design-md/vercel/DESIGN.md": "d0951b93c2b4ce9840c715c9f9b3e58a386c6c58ae5cc0f804dec3b116b95bd8"
+      }
+    },
+    {
+      "id": "design-marc",
+      "repo": "MarcBender-git/awesome-design",
+      "ref": "aaebdbfa009d3e4c60fd1853ddc9b7b7b98c7738",
+      "license": "MIT",
+      "source": "https://github.com/MarcBender-git/awesome-design/tree/aaebdbfa009d3e4c60fd1853ddc9b7b7b98c7738",
+      "files": {
+        "references/design-marc/LICENSE": "6e532555b2042c2762dce8de0b6cec1b333a8dc1aa82d4b59048aad76418082f",
+        "references/design-marc/design-md/brittany-chiang/DESIGN.md": "8ce03e7ce94c83b6b23c16bf9affd7f2a846ce9268a654846fb45cbf2a43ddfe",
+        "references/design-marc/design-md/linear/DESIGN.md": "94f3d0770980fe6098a17028c69451f87441957070c4c2d014a059221c57c046",
+        "references/design-marc/design-md/josh-comeau/DESIGN.md": "5c9aa69c30e6f256e56c40eb65071f7200e7c99d731ca2b535142a7e56ee54af"
+      }
+    },
+    {
+      "id": "design-md-creator",
+      "repo": "ifuryst/design.md",
+      "ref": "048326327aca5d33cf0f7714cec7a2303330381a",
+      "license": "MIT",
+      "source": "https://github.com/ifuryst/design.md/tree/048326327aca5d33cf0f7714cec7a2303330381a",
+      "files": {
+        "references/design-md-creator/LICENSE": "6d4bdc9a9cf30e7beb593475fdcdbf29f981ea6bd7923f202866145409f87b44",
+        "references/design-md-creator/skills/design-md-creator/SKILL.md": "196a2b3e77c2f042bf07290042e1738272004fb88bd00b3cf272194e8de2a965"
+      }
+    },
+    {
+      "id": "design-template",
+      "repo": "flohcreative/design-md-template",
+      "ref": "9add4be2a047a3708ca0c3534995e80e9b451b39",
+      "license": "MIT",
+      "source": "https://github.com/flohcreative/design-md-template/tree/9add4be2a047a3708ca0c3534995e80e9b451b39",
+      "files": {
+        "references/design-template/LICENSE": "c62a8389506f276855d5aa0c54bfdde2bb883dbae9646a8594b56781734658e0",
+        "references/design-template/DESIGN-template.md": "50f9ccd21f683e75acda5a56920b35fd99403d01d322dc30651e69d731a63dea"
+      }
+    },
+    {
+      "id": "shadcn",
+      "repo": "shadcn-ui/ui",
+      "ref": "0e3abd65a97707f4a9cc3ed07bf5006e1cb67b13",
+      "license": "MIT",
+      "source": "https://github.com/shadcn-ui/ui/tree/0e3abd65a97707f4a9cc3ed07bf5006e1cb67b13",
+      "componentPath": "apps/v4/registry/new-york-v4/ui/button.tsx",
+      "files": {
+        "references/shadcn/LICENSE.md": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f",
+        "references/shadcn/apps/v4/registry/new-york-v4/ui/button.tsx": "79dd6f75f8136394442202d6b8b922fb269eaad0a5dba579397c9d5b41f893bb"
+      }
+    },
+    {
+      "id": "magic-ui",
+      "repo": "magicuidesign/magicui",
+      "ref": "cdb348cb4c72a9b54b554d8617801e479fbc8714",
+      "license": "MIT",
+      "source": "https://github.com/magicuidesign/magicui/tree/cdb348cb4c72a9b54b554d8617801e479fbc8714",
+      "componentPath": "apps/www/registry/magicui/blur-fade.tsx",
+      "files": {
+        "references/magic-ui/LICENSE.md": "0147b84235ed916b8b4e89c1f80655351c5afe7d211b629be61f553a227b34ba",
+        "references/magic-ui/apps/www/registry/magicui/blur-fade.tsx": "99a8e83aa8817f48e26d921e959ff9abefb5c2f1f0b72b166ed95e88e015949f"
+      }
+    },
+    {
+      "id": "reui",
+      "repo": "keenthemes/reui",
+      "ref": "ef0fe1252d9b24d69bdedee48a69ec9b29d1f217",
+      "license": "MIT",
+      "source": "https://github.com/keenthemes/reui/tree/ef0fe1252d9b24d69bdedee48a69ec9b29d1f217",
+      "componentPath": "registry/bases/radix/ui/button.tsx",
+      "files": {
+        "references/reui/LICENSE.md": "09592ffefa6512b68dd7aa9031bc50d5d39cfcc9da08288f5eb1f9d236baca66",
+        "references/reui/registry/bases/radix/ui/button.tsx": "76c6abdf94fae4085fd6c50c97c7a99ec21240af187c63ea4b2e71551d33495f"
+      }
+    },
+    {
+      "id": "markora-presets",
+      "repo": "local-authored",
+      "ref": "0.11.0",
+      "license": "Project license",
+      "source": "integrations/references/markora-presets",
+      "files": {
+        "references/markora-presets/minimal/DESIGN.md": "62b6fe98ed7dc678fdb8192518069999bb9d629e2cd5f7ff7bb3908223676654",
+        "references/markora-presets/editorial/DESIGN.md": "c9dbead59dc4d4082d1ac358c6db2c74d38d5564ce8680f278161c266a3f80e8",
+        "references/markora-presets/dark-tech/DESIGN.md": "5d95e8183d2057126bb5704da6a0b9c7b3007e73c18408474dafd88faf63f30b",
+        "references/markora-presets/brutalist/DESIGN.md": "0343ccdbfe12033e786109c4406ab76e19c4e6d25a18156efdacc79d2383a6dc",
+        "references/markora-presets/playful/DESIGN.md": "b5d3ff033d73a0d87c5d83af7a3d2a816de86bcbf9f8f50385ba41d4f03c6511",
+        "references/markora-presets/academic/DESIGN.md": "44ea773f24cf2f8246ef00079569c1377836f39ce017e0d408e995731c65d6e5",
+        "references/markora-presets/creative-portfolio/DESIGN.md": "1cf4b5808d87b65304416dd237a01c4be306296f089cda26515a25475db445ab",
+        "references/markora-presets/corporate-clean/DESIGN.md": "2f9ae7dd7ce938c565915847ffaa77121de08f3e3e9530b2c71bd4f1502ba66c",
+        "references/markora-presets/section-patterns.md": "c8816e7fadd9dbe652a30397aee43549a5131d4b047f03f9de520daf37d2d4a0"
+      }
+    }
+  ]
+}
